@@ -1,0 +1,1 @@
+dot -Tpng capacity_tracker.gv -o capacity_tracker.png
