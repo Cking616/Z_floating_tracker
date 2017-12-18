@@ -6,9 +6,8 @@ Z浮随动装置介绍
 * 测量系统
 * 被控对象
 * 控制系统
-* 工程实践
  
-> 说明：技术经过多年的发展，各方面内容都已经积累下丰富的资料，所以前三章的内容采用图加网络可获取的资源链接的形式，使得读者能通过图简单了解，通过链接下的资料可以较为深刻的了解，这里重点来说工程实践中所考虑的因素。
+> 说明：技术经过多年的发展，各方面内容都已经积累下丰富的资料，所以前三章的内容采用图加网络可获取的资源链接的形式，使得读者能通过图简单了解，通过链接下的资料可以较为深刻的了解。
 
 # 总览
 控制系统的输出源单一，就是模拟量的速度指令(为电压量)，被控对象伺服驱动器为速度控制模式，根据这个模拟量控制电机运行的速度。但是控制系统的输入源有两种情况
@@ -25,17 +24,18 @@ Z浮随动装置介绍
 # 测量系统
 * 电容测量示意图
 
-![][capacitive_transducer]
+    ![][capacitive_transducer]
 
 * 电容距离转换公式
 
-![][capacity2height]
+    ![][capacity2height]
 
 * 电容距离函数图
 
-![][capacity2height2]
+    ![][capacity2height2]
 * 资料
     * [论文：激光切割电容式Z浮微小电容检测系统的研究][capacity_measure1]
+    * [论文：激光切割机电容式Z浮的研究][capacity_measure3]
     * [论文：用边缘电容测量表面光洁度][capacity_measure2]
 # 被控对象
 ![][speed_model]
@@ -49,12 +49,12 @@ Z浮随动装置介绍
     
     振镜控制属于带宽(不理解带宽概念的看首页下面的链接)最高的系统，而且实现全部采用响应速度最快的模拟电路实现，我们的控制系统可以在振镜系统上做裁剪设计即可。
 
-![][galvanometer]
+    ![][galvanometer]
 * PD加前馈系统
     
     需要响应速度快稳定性高伺服系统一般设计上使用PD加前馈来设计，这是一个标准PD加前馈系统:
 
-![][Pd_controller]
+    ![][Pd_controller]
 
 > 注:图中yd表示目标位置，y表示实际位置，dyd和d2yd分别表示yd的一阶导数和二阶导数
 ## Z浮系统
@@ -78,13 +78,13 @@ Z浮随动装置介绍
 * 资料
   * [论文：高速振镜伺服驱动的PID加前馈控制][controller2]
   * [论文：直线电机伺服系统的复合前馈PID控制][controller3]
-# 工程实践
 
 # 链接
   [返回首页][main_page]
   
   [capacity_measure1]: http://www.docin.com/p-776342960.html
   [capacity_measure2]: http://www.ixueshu.com/document/a64bfffc7bcb5a7e318947a18e7f9386.html#pdfpreview
+  [capacity_measure3]: http://xueshu.baidu.com/s?wd=paperuri%3A%2806b63b069450889e798da7d0f12f6f62%29&filter=sc_long_sign&tn=SE_xueshusource_2kduw22v&sc_vurl=http%3A%2F%2Fwww.doc88.com%2Fp-270338220986.html&ie=utf-8&sc_us=4919495557869244475
   [controller1]: http://xueshu.baidu.com/s?wd=paperuri:%28bc93f3433a45560e716c78a6c15744a7%29&filter=sc_long_sign&tn=SE_xueshusource_2kduw22v&sc_vurl=http://www.doc88.com/p-2691543418116.html&ie=utf-8&sc_us=610292654239538222
   [controller2]: https://wenku.baidu.com/view/3217674f482fb4daa58d4bbf.html
   [controller3]:https://wenku.baidu.com/view/3af1bcfa770bf78a652954d2.html

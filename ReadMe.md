@@ -8,14 +8,15 @@
 ![z_floating_tracker][1]
 
 激光切割中的Z浮随动装置(Z-Floating-Tracker)，是一通过电容传感器测得反馈距离d来保证运动过程中焦距f始终保持稳定高度的闭环控制器。又由于电容作为反馈元件特性较差（如电容噪声较大、有时延），使用环境覆盖面广、条件恶劣（如按材质有钢材、铝材等，按形状有管材、平板等，又有高功率环境下高温条件等），这些都造成了反馈回路极不稳定。且激光焦距的响应快慢直接影响在切出的工件的优劣，且而随着行业发展，行业对技术要求越来越高，这就要求控制算法同时保证高速、稳定、精度高，因此对于设计者来说是一个很大挑战。
-在资源受限、时间受限、必须考虑成本的前提下，必然会遇到很多问题，这里记录遇到的问题的总结与当时的解决方案。
+文档的目的是设计一套较为通用的控制系统，尽可能满足低资源占用，高效率。
 # 目录
-* [Z浮隨動裝置介紹][introduction]
+* [Z浮随动装置][introduction]
+* [物理层设计][chapter1]
 *  嵌入式C编程风格
 *  代码架构设计
     * ...
     * ...
-*  [控制算法Matlab仿真][reconsitution3]
+*  [控制算法Matlab仿真][matlab_code1]
 # 資料
 * [自控入门：《现代控制系统》][2]
 * [自控入门：Feedback Control Of Dynamic Systems][3]
@@ -28,15 +29,9 @@
 * [十大滤波算法C语言][10]
 
   [introduction]: ./docs/Introduction.md
-  [problem1]: ./docs/Problem1.md
-  [problem2]: ./docs/Problem2.md
-  [problem3]: ./docs/Problem3.md
-  [problem4]: ./docs/Problem4.md
-  [problem5]: ./docs/Problem5.md
-  [problem6]: ./docs/Problem6.md
-  [reconsitution1]: ./docs/Reconsitution1.md
-  [reconsitution2]: ./docs/Reconsitution2.md
-  [reconsitution3]: ./matlab_code/Z_floating_tracker(capacity).m
+  [chapter1]: docs/Chapter1.md
+  [problem2]: docs/Chapter2.md
+  [matlab_code1]: ./matlab_code/Z_floating_tracker(capacity).m
 
 
   [1]: ./img/laser.png

@@ -129,7 +129,6 @@ extern io_state g_io_manager;
 *
 * =====================================================================================
 */
-#define __postive
 #define ZERO_SPEED_VOLTAGE 0x00008000
 #define VOLTAGE_SUMMATION  0x00008000	
 #define MAX_SPEED_VOLTAGE  0x00007fff
@@ -155,9 +154,9 @@ typedef struct
 	short		   direction;
 	short		   zero_com_value;
 
-	__postive float max_acceleration;
-	__postive float max_speed;
-	__postive float max_jerk;
+	float max_acceleration;
+	float max_speed;
+	float max_jerk;
 
 	float last_out_speed;
 	float last_out_acceleration;
