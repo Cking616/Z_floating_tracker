@@ -17,11 +17,15 @@
 # 目录
 * [Z浮随动装置][introduction]
 * [物理层设计][chapter1]
-*  嵌入式C编程风格
 *  代码架构设计
     * ...
     * ...
-*  [控制算法Matlab仿真][matlab_code1]
+*  算法实现
+    *  嵌入式C编程风格
+    * [电容查表法][chapter5]
+    * 滤波算法及其适用位置
+    * [控制算法Matlab仿真][matlab_code1]
+    
 # 資料
 * [自控入门：《现代控制系统》][2]
 * [自控入门：Feedback Control Of Dynamic Systems][3]
@@ -36,6 +40,7 @@
   [introduction]: ./docs/Introduction.md
   [chapter1]: docs/Chapter1.md
   [problem2]: docs/Chapter2.md
+  [chapter5]: docs/Chapter5.md
   [matlab_code1]: ./matlab_code/Z_floating_tracker(capacity).m
 
 
