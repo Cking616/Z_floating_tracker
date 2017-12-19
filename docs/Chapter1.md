@@ -97,24 +97,53 @@ DAC模块的位数决定其输出精度，如精度为八位时，数字输出0x
     > 输出电压 V = 最大电压 V * (数字输出 / (2 ^ 传感器位数 / 2) )
 ## 输出转换
     设：
-    丝杆螺距为 len mm/r， 速度系数为 sp r/(min * V)， 最大电压为 maxv V， 传感器位数为 dig 位
-    , 计算速度为 calu μm/ms， 实际速度为 relu (mm / min) 。
+    丝杆螺距为 pitch mm/r， 速度系数为 valtage2speed_radio r/(min * V)， 
+    最大电压为 maxv V， 传感器位数为 dig 位
+    , 计算速度为 calu， 实际速度为 relu。
     
     有条件：
-    数字输出 = b * calu
-    输出电压 V = 最大电压 V * (数字输出 / (2 ^ 传感器位数 / 2) )
+    数字输出 = da_radio * 计算速度
+    输出电压  = 最大电压  * (数字输出 / (2 ^ 传感器位数 / 2) )
     实际速度 = 输出电压 * 速度系数 * 螺距
     
-    求b,使得 计算速度 calu(μm/ms) = 实际输出速度 relu(mm/min)
+    求系数da_radio,使得 计算速度 calu = 实际输出速度 relu
     
 使用符号演算 
 ~~~
-relu = sp * maxv * (b * calu / ( 2 ^ dig / 2))  * len 
-b = relu * (2 ^ dig / 2) / (sp * maxv * len * calu)
-b = (2 ^ dig / 2 / (sp * maxv * len)) * (relu / calu)
-~~~
-    由于 b 的目标是使得 relu(μm/ms) = calu(mm/min) ，代入值约化单位即可求得转换系数b。
+relu = valtage2speed_radio * maxv * 
+       (da_radio * calu / ( 2 ^ dig / 2))  * pitch 
 
+da_radio = relu * (2 ^ dig / 2) / 
+          (valtage2speed_radio * maxv * pitch * calu)
+
+da_radio = (2 ^ dig / 2 / (valtage2speed_radio * maxv * pitch)) 
+          * (relu / calu)
+~~~
+    
+由于 b 的目标是使得 relu = calu ，代入值约化单位即可求得转换系数da_radio。
+
+真实代码如下
+~~~ c
+// Internal
+// 最大电压 12V
+#define MAX_VOLTAGE 12
+// DAC芯片位数
+#define DAC_BITS 20
+// DA分辨率
+#define DAC_RESOLTION ((2 << DAC_BITS) / 2)
+...
+
+// EXternal
+// 一分钟对应的毫秒数
+#define MSEC_PER_MINUTE (60 * 1000)
+// 一毫米对应的微米数
+#define MICRON_PER_MILLIMETER 1000
+...
+
+__valtage2speed_radio = in_valtage2speed_radio / MSEC_PER_MINUTE;
+__pitch = in_pitch * MICRON_PER_MILLIMETER
+da_radio = (DAC_RESOLTION / (__valtage2speed_radio * MAX_VOLTAGE * __pitch) );
+~~~
 
   [chapter5]: Chapter5.md
 
