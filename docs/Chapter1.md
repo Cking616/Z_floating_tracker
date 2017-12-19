@@ -3,7 +3,7 @@
 # 目录
 * 反馈输入模块
 * DAC模块
-* 内部物理量转换
+* 物理量转换
 # 反馈输入模块
 反馈输入模块分为电容检测的处理，和从电容到距离的转换模式。
 ## 电容检测
@@ -16,6 +16,7 @@
 * 电容频率转换关系
 
     ![][capacity_measure_img2]
+    
 * 资料
     * [电容式位移传感器][capacity_measure1]
     
@@ -54,7 +55,7 @@
 
 这里只提查表法，具体查表法需要注意的问题和算法实现在[后文][chapter5]。
 # DAC模块
-DAC模块是将数字量转为电压量输出的元件，现今已高度成熟，芯片和原理和参考[此文][DAC1]。
+DAC模块是将数字量转为电压量输出的元件，现今已高度成熟，芯片和原理和参考[此文][DAC2]。
 
 DAC模块需要注意的是其位数和输出电压范围。
 
@@ -66,11 +67,54 @@ DAC模块需要注意的是其位数和输出电压范围。
 ![][DAC_img1]
 
 DAC模块的位数决定其输出精度，如精度为八位时，数字输出0x00~0xFF对应最低电压到最高电压值。
-常见DAC模块选型可见[此处][DAC2]。
-# 内部物理量转换
+常见DAC模块选型可见[此处][DAC1]。
+# 物理量转换
+## 外部物理量
+* 电机
+    ![][motor1]
+    
+    实际中电机通常单位为r/min(转每分)，且在中国大部分额定转速都是3000r/min。
+* 丝杆
 
+    ![][screw]
+    
+    丝杆一般最重要的是螺距，单位是mm/r，一般的规格是5mm/r、10mm/r等。
+
+* 速度
+    > 速度 = 丝杆螺距 * 电机转速 (mm/min)
  
- 
+* 伺服
+    > 伺服要定义一个 速度 = a * 电压 的关系，这里 a 的单位为 r/(min * V)，称之为速度系数。
+## 内部物理量
+* 时间
+    > 时间单位取法为了方便运算取控制周期的较小倍数较好，目前控制周期是100μs级的数，取ms较为合适。
+* 距离
+    > 距离单位按电容转换精度取为μm。
+* 速度
+    > 由上速度单位为μm/ms。
+* 数字输出
+    > 输出电压 V = 最大电压 V * (数字输出 / (2 ^ 传感器位数 / 2) )
+## 输出转换
+    设：
+    丝杆螺距为 len mm/r， 速度系数为 sp r/(min * V)， 最大电压为 maxv V， 传感器位数为 dig 位
+    , 计算速度为 calu μm/ms， 实际速度为 relu (mm / min) 。
+    
+    有条件：
+    数字输出 = b * calu
+    输出电压 V = 最大电压 V * (数字输出 / (2 ^ 传感器位数 / 2) )
+    实际速度 = 输出电压 * 速度系数 * 螺距
+    
+    求b,使得 计算速度 calu(μm/ms) = 实际输出速度 relu(mm/min)
+    
+使用符号演算 
+~~~
+relu = sp * maxv * (b * calu / ( 2 ^ dig / 2))  * len 
+b = relu * (2 ^ dig / 2) / (sp * maxv * len * calu)
+b = (2 ^ dig / 2 / (sp * maxv * len)) * (relu / calu)
+~~~
+    由于 b 的目标是使得 relu(μm/ms) = calu(mm/min) ，代入值约化单位即可求得转换系数b。
+
+
   [chapter5]: Chapter5.md
 
   [capacity_measure_img1]: ../img/Chapter1/capacity_mesure1.png
@@ -79,6 +123,8 @@ DAC模块的位数决定其输出精度，如精度为八位时，数字输出0x
   [capacity_measure_img4]: ../img/Chapter1/capacity_mesure4.png
   [capacity_measure_img5]: ../img/Chapter1/capacity_mesure5.png
   [DAC_img1]: ../img/Chapter1/DAC1.png
+  [motor1]: ../img/Chapter1/motor1.png
+  [screw]: ../img/Chapter1/screw1.jpg
     
   [DAC1]: https://wenku.baidu.com/view/41430572f01dc281e53af0bb.html
   [DAC2]: http://www.doc88.com/p-7905996394673.html
