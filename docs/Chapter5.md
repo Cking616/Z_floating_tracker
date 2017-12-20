@@ -35,6 +35,11 @@ inline int get_step_dir(
 			: -1;
 }
 
+len_t cap_table_get_length(
+	cap_state_t* state, 
+	rel_cap_t cur_cap)
+{	
+...
 /* 起始查找位置定义到上次查找位置 */
 /* 查找增量定义到上次查找增量(真实物体速度变化范围有限) */
 ...
@@ -65,6 +70,8 @@ inline int get_step_dir(
 		}	
 		_last_dir = _dir;
 	}
+...
+}
 ...
 ~~~
 
