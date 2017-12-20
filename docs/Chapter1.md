@@ -120,7 +120,7 @@ da_radio = (2 ^ dig / 2 / (valtage2speed_radio * maxv * pitch))
           * (relu / calu)
 ~~~
     
-由于 b 的目标是使得 relu = calu ，代入值约化单位即可求得转换系数da_radio。
+由于 relu = calu ，代入值约化单位即可求得转换系数da_radio。
 
 真实代码如下
 ~~~ c
@@ -140,9 +140,9 @@ da_radio = (2 ^ dig / 2 / (valtage2speed_radio * maxv * pitch))
 #define MICRON_PER_MILLIMETER 1000
 ...
 
-__valtage2speed_radio = in_valtage2speed_radio / MSEC_PER_MINUTE;
-__pitch = in_pitch * MICRON_PER_MILLIMETER
-da_radio = (DAC_RESOLTION / (__valtage2speed_radio * MAX_VOLTAGE * __pitch) );
+_valtage2speed_radio = in_valtage2speed_radio / MSEC_PER_MINUTE;
+_pitch = in_pitch * MICRON_PER_MILLIMETER;
+_da_radio = (DAC_RESOLTION / (_valtage2speed_radio * MAX_VOLTAGE * _pitch) );
 ~~~
 
   [chapter5]: Chapter5.md
