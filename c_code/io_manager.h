@@ -8,7 +8,7 @@
  *        Version:  1.0
  *        Created:  2017/12/11
  *
- *         Author:  cking ((kanghaitao)), cking616@mail.ustc.edu.cn
+ *         Author:  cking (Hito Kang), cking616@mail.ustc.edu.cn
  *        License:  Apache Licence 
  *
  * =====================================================================================

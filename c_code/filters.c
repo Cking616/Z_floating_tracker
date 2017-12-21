@@ -74,7 +74,7 @@ float complementary2_filter_process(complementary2_state *state, float x)
  *   NOTES: Please change A,H,q,r according to your application.
  *
  * @inputs  
- *   state - Klaman filter structure
+ *   state - Kalman filter structure
  *   init_x - initial x state value   
  *   init_p - initial estimated error convariance
  * @outputs 

@@ -59,7 +59,7 @@ void io_manager_initialize(io_state * state)
 	
 	io_manager_input(state);
 
-	io_manager_disenable_servo(state);
+	io_manager_disable_servo(state);
 	io_manager_disable_alarm_clear(state);
 	io_manager_enable_zero_clamp(state);
 	io_output->servo_da_output = 0;

@@ -17,13 +17,13 @@ Z浮随动装置实践
 # 目录
 * [Z浮随动装置][introduction]
 * [物理层设计][chapter1]
-*  代码架构设计
-    * ...
-    * ...
+* 系统设计
 *  算法实现
-    *  嵌入式C编程风格
+    * [嵌入式C编程风格][chapter3]
+    * PID算法及其优化
     * [电容查表法][chapter5]
     * 滤波算法及其适用位置
+    * 自适应及模糊算法
     * [控制算法Matlab仿真][matlab_code1]
     
 # 資料
@@ -39,8 +39,11 @@ Z浮随动装置实践
 
   [introduction]: ./docs/Introduction.md
   [chapter1]: docs/Chapter1.md
-  [problem2]: docs/Chapter2.md
+  [chapter2]: docs/Chapter2.md
+  [chapter3]: docs/Chapter3.md
+  [chapter4]: docs/Chapter4.md
   [chapter5]: docs/Chapter5.md
+  [chapter6]: docs/Chapter6.md
   [matlab_code1]: ./matlab_code/Z_floating_tracker(capacity).m
 
 
