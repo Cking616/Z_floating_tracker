@@ -105,7 +105,7 @@ void io_manager_output(io_state* state);
 
 #define io_manager_enable_servo(state) ((state)->output_cache.servo_io_output |= MASK_01)
 
-#define io_manager_disenable_servo(state) ((state)->output_cache.servo_io_output &= (~MASK_01))
+#define io_manager_disable_servo(state) ((state)->output_cache.servo_io_output &= (~MASK_01))
 
 #define io_manager_enable_zero_clamp(state)  ((state)->output_cache.servo_io_output |= MASK_04)
 
@@ -146,7 +146,7 @@ typedef struct
 typedef struct
 {
 	int limit_encoder_position;
-	unsigned short rpm_per_volage;
+	unsigned short rpm_per_voltage;
 	unsigned short pulse_per_inc;
 	unsigned int   pulse_per_rpm;
 	short		   pg_ratio;

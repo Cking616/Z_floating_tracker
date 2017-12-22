@@ -72,15 +72,15 @@ void io_manager_initialize(io_state * state)
 }
 
 #define constrain_limit(x,lower,upper)    ((x)<(lower)?(lower):((x)>(upper)?(upper):(x)))
-#define constarin_up(x, upper) ((x) > (upper) ? (upper) : (x))
-#define constarin_low(x, lower)  ((x) < (lower) ? (lower) : (x))
+#define constrain_up(x, upper) ((x) > (upper) ? (upper) : (x))
+#define constrain_low(x, lower)  ((x) < (lower) ? (lower) : (x))
 #define ZERO_ERROR 0.01f
 
 void servo_manager_initialize(servo_state * state)
 {
 	io_state* io_manager = io_manager_get_manager();
 	state->convert_unit_voltage = (float)(VOLTAGE_SUMMATION * PER_MINUTE_SECONDS * state->pulse_per_inc);
-	state->convert_unit_voltage /= state->rpm_per_volage;
+	state->convert_unit_voltage /= state->rpm_per_voltage;
 	state->convert_unit_voltage /= state->pulse_per_rpm;
 
 	state->last_encoder_position = io_manager_read_encoder(io_manager);
@@ -97,9 +97,9 @@ void servo_manager_set_speed(servo_state* state, float target_speed)
 
 	target_speed = constrain_limit(target_speed, -state->max_speed, state->max_speed);
 	up_acceleration = state->last_out_acceleration + state->max_jerk;
-	up_acceleration = constarin_up(up_acceleration, state->max_acceleration);
+	up_acceleration = constrain_up(up_acceleration, state->max_acceleration);
 	down_acceleration = state->last_out_acceleration - state->max_jerk;
-	down_acceleration = constarin_low(down_acceleration, -state->max_acceleration);
+	down_acceleration = constrain_low(down_acceleration, -state->max_acceleration);
 	target_speed = constrain_limit(target_speed,
 		state->last_out_speed + up_acceleration,
 		state->last_out_speed + down_acceleration);
