@@ -6,11 +6,21 @@
 又同时有大量写的相当优秀的短小精悍的开源代码与其分析说明文档，如[lua语言核心代码][lua1]、[lua源代码欣赏][lua2]，
 供人学习瞻仰。
 
-作者又非在这一领域深耕多年之人，本来没有能力写这方面的大道。不过细细想来优秀参照确实能让人在深入理解后如同醍醐灌顶，
+笔者又非在这一领域深耕多年之人，本来没有能力写这方面的大道。不过细细想来优秀参照确实能让人在深入理解后如同醍醐灌顶，
 但是单薄而枯燥的条规却使人望而却步，没有饱满感受的事物实在难以让人产生认同感，故而作者想来在此文档中，写下一些自身在
 实践过程中关于编码的体会，作为对那些条规的释义补充。
 
+# 工具
+工欲善事，必先利其器；一个人要做好一件事情处决于两个方面：内因、外因，内因是沉积性的，随人的阅历、分析表达能力、专业
+知识的增加而增加的，随着时间变化甚至经常只会出现倒退不会增加。
+*  笔者使用的工具
 
+    ![][IDE1]
+   
+    ![][IDE2]
+   
+   [IDE1]: ../img/Chapter3/IDE1.png
+   [IDE2]: ../img/Chapter3/IDE2.png
    
    [lua1]: http://www.lua.org/download.html
    [lua2]: http://download.csdn.net/download/monkey07118124/9700822
@@ -20,3 +30,4 @@
    [c_code_style2]: http://blog.csdn.net/u013467442/article/details/47071171
    [jetbrains]: https://www.jetbrains.com/
    [myvimsc]: https://github.com/Cking616/MyVimsc
+   [vim1]: https://www.jianshu.com/p/4188326dfba6
