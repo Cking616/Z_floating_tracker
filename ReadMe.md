@@ -20,7 +20,7 @@ Z浮随动装置实践
 * 系统设计
 *  算法实现
     * [嵌入式C编程风格][chapter3]
-    * [被控对象分析][chapter4]
+    * [输入分析及系统规格][chapter4]
     * [电容查表法][chapter5]
     * 滤波算法及其适用位置
     * 自适应及模糊算法
@@ -44,7 +44,7 @@ Z浮随动装置实践
   [chapter4]: docs/Chapter4.md
   [chapter5]: docs/Chapter5.md
   [chapter6]: docs/Chapter6.md
-  [matlab_code1]: ./matlab_code/Z_floating_tracker(capacity).m
+  [matlab_code1]: matlab_code/Z_floating_tracker.m
 
 
   [1]: ./img/laser.png
